@@ -1,0 +1,16 @@
+
+<%= link_to 'お気に入りブログ一覧', favorites_path %>
+
+<br>
+
+<% @blogs.each do |blog| %>
+ 投稿者:<%= blog.user.name %>
+ <%= blog.content %>
+ <%= blog.image %>
+ <%= link_to 'show', blog_path(blog.id) %>
+ <%= link_to "edit", edit_blog_path(blog.id) %>
+ <%= link_to 'destroy', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+ <br>
+<% end %>
+
+<%= link_to '新しくブログを投稿する', new_blog_path %>

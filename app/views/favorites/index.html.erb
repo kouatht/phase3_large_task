@@ -1,0 +1,8 @@
+<p>お気に入りブログ一覧</p>
+<% @favorites_blogs.each do |favorites_blog| %>
+  投稿者:<%= favorites_blog.user.name %>
+  内容:<%= favorites_blog.content %>
+  
+<% end %>
+
+<p><%= link_to 'blog一覧', blogs_path %></p>

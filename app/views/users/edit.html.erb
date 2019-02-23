@@ -1,0 +1,33 @@
+<%= form_with(model: @user, local: true ) do |form| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <p><%= notice %></p>
+    
+    <%= form.label :name,'名前' %>
+    <%= form.text_field :name, class: 'form-control' %>
+    
+    <%= form.label :email,'名前' %>
+    <%= form.text_field :email, class: 'form-control' %>
+    
+    <p>現在のプロフィール画像</p>
+    <%= image_tag @user.image.url %>
+    <%= form.label :image,'新しい画像' %>
+    <%= form.file_field :image %>
+    
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+    
+    <%= form.label :password_confirmation, "Confirmation" %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+
+    <%= form.submit "更新する", class: "btn btn-primary" %>
+<% end %>
