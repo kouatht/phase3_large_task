@@ -2,7 +2,7 @@
 <% @favorites_blogs.each do |favorites_blog| %>
   投稿者:<%= favorites_blog.user.name %>
   内容:<%= favorites_blog.content %>
-  
+  <%= link_to '詳細', blog_path(favorites_blog.id) %>
 <% end %>
 
 <p><%= link_to 'blog一覧', blogs_path %></p>

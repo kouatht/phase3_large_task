@@ -5,3 +5,36 @@
 body {
     background-color: #CCCCFF;
 }
+
+.btn-info {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.btn-info:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.btn-info.show {
+    background: #FFEFD5;/*ボタン色*/
+    color: #FFF;
+}
+
+.btn-info.edit {
+    background: #90EE90;/*ボタン色*/
+    color: #FFF;
+}
+
+.btn-info.destroy {
+    background: #F08080;/*ボタン色*/
+    color: #FFF;
+}
+
+.each_button {
+    
+}

@@ -7,9 +7,14 @@
  投稿者:<%= blog.user.name %>
  <%= blog.content %>
  <%= blog.image %>
- <%= link_to 'show', blog_path(blog.id) %>
- <%= link_to "edit", edit_blog_path(blog.id) %>
- <%= link_to 'destroy', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+ <div class="each_button">
+  <button type="button" class="btn btn-info show"><%= link_to 'show', blog_path(blog.id) %></button>
+  <% if blog.user_id == current_user.id %>
+   <button type="button" class="btn btn-info edit"><%= link_to "edit", edit_blog_path(blog.id) %></button>
+   <button type="button" class="btn btn-info destroy"><%= link_to 'destroy', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+   </button>
+  <% end %>
+ </div>
  <br>
 <% end %>
 
