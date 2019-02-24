@@ -3,27 +3,40 @@
   <head>
     <title>Phase3LargeTask</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    
-  <div class="alert alert-info">
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-    　<%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-  </div>
-    
-    
-    <%= yield %>
+    <div class="container">
+      <header class="header">
+        <div class="alert alert-info">
+          <div class="row">
+            <% if logged_in? %>
+              <div class="col-md-4"><%= link_to "Profile", user_path(current_user.id) %></div>
+            <% else %>
+              <div class="col-md-4"><%= link_to "Sign up", new_user_path %></div>
+            <% end %>
+            
+            <div class="col-md-4"><%= link_to "Algraph", blogs_path %></div>
+            
+            <% if logged_in? %>
+              <div class="col-4"><%= link_to "Logout", session_path(current_user.id), method: :delete %></div>
+            <% else %>
+              <div class="col-4"><%= link_to "Login", new_session_path %></div>
+            <% end %>
+          </div>
+        </div>
+      </header>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      
+      
+      
+      <%= yield %>
+    </div>
   </body>
 </html>
