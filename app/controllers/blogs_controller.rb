@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only:[:show, :edit, :update, :destroy]
   before_action :security, only:[:show, :edit, :new, :destroy]
-  before_action :prohibited_access, only:[:edit, :update, :destroy]
+  before_action :prohibited_access_to_blogs, only:[:edit, :update, :destroy]
   
   def index
     @blogs = Blog.all

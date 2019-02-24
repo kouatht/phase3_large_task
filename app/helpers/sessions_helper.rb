@@ -18,4 +18,11 @@ module SessionsHelper
             redirect_to blogs_path
         end
     end
+    
+    def prohibited_access_to_blogs
+        @user = User.find(params[:id])
+        if current_user != @user
+            redirect_to blogs_path
+        end
+    end
 end
